@@ -43,16 +43,16 @@ export default function TasksList() {
                   >
                     Save
                   </button>
-                  {/* <button
+                  <button
                     onClick={() => setIsEditing(null)}
                     className="px-4 py-1 bg-gray-500 text-white rounded-md hover:bg-gray-700"
                   >
                     Cancel
-                  </button> */}
+                  </button>
                 </>
               ) : (
                 <>
-                  <p className="pr-4 mr-2">{task.title}</p>
+                  <p className="pr-4 mr-2 truncate">{task.title}</p>
                   <button
                     onClick={() => handleEdit(task)}
                     className="px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700"
