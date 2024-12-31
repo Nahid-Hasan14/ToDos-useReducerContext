@@ -26,7 +26,7 @@ export default function AddTasks() {
             <h1 className='flex justify-center pb-10 font-bold text-2xl'>ToDos List</h1>
             <div className='flex items-center'>
               
-                <input onChange={(e)=> setText(e.target.value)} value={text} type='text' className='border border-gray-300 rounded-md px-4 py-2 mr-2 focus:outline-none focus:ring focus:ring-blue-200' placeholder='add task'/>
+                <input onChange={(e)=> setText(e.target.value)} value={text} type='text' className='w-full border border-gray-300 rounded-md px-4 py-2 mr-2 focus:outline-none focus:ring focus:ring-blue-200' placeholder='add task'/>
                 <button onClick={handleAdded} className='bg-blue-500 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-700'>add</button>
               
             </div>

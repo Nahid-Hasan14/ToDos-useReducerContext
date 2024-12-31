@@ -15,6 +15,9 @@ export default function TasksList() {
   };
 
   const handleSave = (id) => {
+    if(editText.trim()=== "") {
+      return dispatch({ type: "deleted", id }); 
+    }
     dispatch({ type: "edited", id, title: editText });
     setIsEditing(null);
     setEditText("");
@@ -32,11 +35,11 @@ export default function TasksList() {
             <tr key={task.id} className="flex gap-4 items-center my-2 p-2 bg-white border dark:bg-gray-800 dark:border-gray-700">
               {isEditing === task.id ? (
                 <>
-                <td className="title w-[250px] border dark:border-gray-700">
+                <td className="w-[250px]">
                   <input
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
-                    className="border border-gray-300 rounded-md px-4 focus:outline-none focus:ring focus:ring-blue-200"
+                    className="w-full border border-gray-300 rounded-md px-4 py-1 focus:outline-none focus:ring focus:ring-blue-200"
                   />
                   </td>
                   <td>
@@ -56,7 +59,7 @@ export default function TasksList() {
                 </>
               ) : (
                 <>
-                  <td className="title w-[250px]">
+                  <td className="w-[250px]">
                     <p className="pr-4 mr-2 truncate">{task.title}</p>
                   </td>
                   <td>
