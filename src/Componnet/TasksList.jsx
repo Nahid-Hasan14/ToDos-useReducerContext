@@ -27,16 +27,19 @@ export default function TasksList() {
   return (
     <div>
       <div className="mt-5 py-3">
-        <ul>
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           {tasks.map((task) => (
-            <li key={task.id} className="flex gap-4 items-center my-2">
+            <tr key={task.id} className="flex gap-4 items-center my-2 p-2 bg-white border dark:bg-gray-800 dark:border-gray-700">
               {isEditing === task.id ? (
                 <>
+                <td className="title w-[250px] border dark:border-gray-700">
                   <input
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
-                    className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring focus:ring-blue-200"
+                    className="border border-gray-300 rounded-md px-4 focus:outline-none focus:ring focus:ring-blue-200"
                   />
+                  </td>
+                  <td>
                   <button
                     onClick={() => handleSave(task.id)}
                     className="px-4 py-1 bg-green-500 text-white rounded-md hover:bg-green-700"
@@ -49,27 +52,32 @@ export default function TasksList() {
                   >
                     Cancel
                   </button>
+                  </td>
                 </>
               ) : (
                 <>
-                  <p className="pr-4 mr-2 truncate">{task.title}</p>
-                  <button
-                    onClick={() => handleEdit(task)}
-                    className="px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDelete(task.id)}
-                    className="px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-700"
-                  >
-                    Delete
-                  </button>
+                  <td className="title w-[250px]">
+                    <p className="pr-4 mr-2 truncate">{task.title}</p>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => handleEdit(task)}
+                      className="px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-700"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(task.id)}
+                      className="px-4 py-1 bg-red-500 text-white rounded-md hover:bg-red-700"
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </>
               )}
-            </li>
+            </tr>
           ))}
-        </ul>
+        </table>
       </div>
     </div>
   );
